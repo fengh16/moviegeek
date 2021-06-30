@@ -1,3 +1,17 @@
+# 注：
+
+Python3.8需要用`matplotlib==3.4.1,psycopg2==2.9.1,scipy==1.7.0`
+
+``` bash
+pip install -r requirements.txt
+python manage.py makemigrations
+python manage.py migrate --run-syncdb
+python populate_moviegeek.py
+python populate_ratings.py
+# https://www.themoviedb.org/account/signup 创建用户，https://www.themoviedb.org/settings/api 创建API，创建`.prs`文件，内容是类似 {"themoviedb_apikey": "6d88c9a24b1bc9a60b374d3fe2cd92ac"}
+python manage.py runserver 127.0.0.1:8000
+```
+
 # The MovieGEEK Installation Guide
 
 The MovieGEEK is a website implemented to accompany my book, Practical Recommender Systems. 
@@ -15,7 +29,7 @@ I wish to extend a big thanks to both of them for all their work.
 ## Project Setup
 
 ### Install Python 3.x
- 
+
 The MovieGEEK website requires that you have Python 3.x installed. Practical Recommender Systems does not teach you 
 Python, though. You’ll need to be able to read Python code to understand the algorithms, and, of course, programming 
 experience makes it easier to implement the website. 
@@ -33,7 +47,7 @@ but I have always used the Anaconda package.
 You have two choices for downloading the source code – downloading a zip file of the source code or using Git. 
 
 * *Downloading a zip file*
- 
+
    From the main [MovieGEEK directory on GitHub](https://github.com/practical-recommender-systems/moviegeek), 
    click the green “Clone or download” button and choose to download a zip file to your computer.
    
@@ -102,7 +116,7 @@ things will be considerably faster if you install PostGreSQL.
 
 Django comes with a database that enables you to run the website without an external database. However, using another 
 database makes it faster. I had good experiences using the PostGreSQL db.
- 
+
 ####  Install and run PostGreSQL
 First, install Postgres and run it. 
 Download the correct postgresql version for your operating system [here](https://www.postgresql.org/download/),
@@ -228,6 +242,7 @@ To restart the project again do the following:
     > conda activate prs
     ```
     
+
 Start the web server again by running the following command:
 ```bash
 > python3 manage.py runserver 127.0.0.1:8000
